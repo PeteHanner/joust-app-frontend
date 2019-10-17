@@ -13,16 +13,24 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      data: []
+      horses: [],
+      armors: [],
+      weapons: []
     }
   }
 
   componentDidMount(){
     fetch(DBURL + '/horses')
     .then(res => res.json())
-    .then(data => {
-      console.log(data)
-    })
+    .then(horses => this.setState({horses: horses}))
+
+    fetch(DBURL + '/armors')
+    .then(res => res.json())
+    .then(armors => this.setState({armors: armors}))
+
+    fetch(DBURL + '/weapons')
+    .then(res => res.json())
+    .then(weapons => this.setState({weapons: weapons}))
   }
 
   render(){
@@ -36,7 +44,12 @@ class App extends React.Component {
             <Route path="/battle">
               <BattlePage />
             </Route>
-            <Route path="/equipment/:type" render={routerProps => <EquipmentPage {...routerProps}/>} />
+            <Route exact path="/equipment/:type" render={routerProps => {
+                return(
+                  <EquipmentPage
+                    {...routerProps}
+                  />
+                ) }} />
             <Route path="/">
               <MainPage />
             </Route>
