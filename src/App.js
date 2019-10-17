@@ -47,6 +47,9 @@ class App extends React.Component {
             <Route exact path="/equipment/:type" render={routerProps => {
                 return(
                   <EquipmentPage
+                    horse={this.state.horses}
+                    weapon={this.state.weapons}
+                    armor={this.state.armors}
                     {...routerProps}
                   />
                 ) }} />
