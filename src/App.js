@@ -7,12 +7,22 @@ import BattlePage from './containers/BattlePage'
 import About from './components/About'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
+const DBURL = 'http://localhost:3001'
+
 class App extends React.Component {
   constructor() {
     super()
     this.state = {
-
+      data: []
     }
+  }
+
+  componentDidMount(){
+    fetch(DBURL + '/horses')
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+    })
   }
 
   render(){

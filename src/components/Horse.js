@@ -6,7 +6,7 @@ class Horse extends React.Component {
   render(){
     return(
       <Card>
-        <Image src='http://www.fillmurray.com/285/220' />
+        <Image src='http://www.fillmurray.com/285/220' wrapped/>
         <Card.Content>
           <Card.Header>Horse Name</Card.Header>
         </Card.Content>
