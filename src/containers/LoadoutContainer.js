@@ -2,15 +2,16 @@ import React from 'react'
 import Weapon from '../components/Weapon'
 import Armor from '../components/Armor'
 import Horse from '../components/Horse'
+import {Container} from 'semantic-ui-react'
 
 class LoadoutContainer extends React.Component {
   render(){
     return(
-      <div>
-      <Weapon />
-      <Armor />
-      <Horse />
-      </div>
+      <Container align='center'>
+        <Weapon />
+        <Armor />
+        <Horse />
+      </Container>
     )
   }
 }
