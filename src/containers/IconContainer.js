@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Segment, Divider, Button, Image, Card } from 'semantic-ui-react'
+import { Grid, Image } from 'semantic-ui-react'
 
 class IconContainer extends React.Component {
   render(){
