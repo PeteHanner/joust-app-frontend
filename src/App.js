@@ -19,7 +19,7 @@ class App extends React.Component {
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     fetch(DBURL + '/horses')
     .then(res => res.json())
     .then(horses => this.setState({horses: horses}))
@@ -51,16 +51,22 @@ class App extends React.Component {
                     weapon={this.state.weapons}
                     armor={this.state.armors}
                     {...routerProps}
-                  />
+                    />
                 ) }} />
-            <Route path="/">
-              <MainPage />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-    )
-  }
-}
+                <Route exact path="/" render={routerProps => {
+                    return(
+                      <MainPage
+                        horse={this.state.horses}
+                        weapon={this.state.weapons}
+                        armor={this.state.armors}
+                        {...routerProps}
+                        />
+                    ) }} />
+                  </Switch>
+                </div>
+              </Router>
+            )
+          }
+        }
 
-export default App;
+        export default App;

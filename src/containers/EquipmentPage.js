@@ -25,7 +25,7 @@ class EquipmentPage extends React.Component {
         <Segment>
           <Grid columns={2} divided>
             <Grid.Column width={10}>
-              <IconContainer />
+              <IconContainer type={this.state.equipment}/>
             </Grid.Column>
             <Grid.Column width={6} align='center'>
               <DetailContainer />
