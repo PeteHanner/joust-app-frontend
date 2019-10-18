@@ -28,7 +28,7 @@ class IconContainer extends React.Component {
       return gridArray.map((row, idx) => {
         return(
           <Grid.Row key={idx}>
-            {row.map(eqt => <Grid.Column key={eqt.id}><Image src={eqt.img} wrapped/></Grid.Column>)}
+            {row.map(eqt => <Grid.Column key={eqt.id}><Image src={eqt.img} onClick={() => this.props.equipClick(eqt)} wrapped/></Grid.Column>)}
           </Grid.Row>
         )
       })

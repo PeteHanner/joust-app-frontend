@@ -5,7 +5,7 @@ import MainPage from './containers/MainPage'
 import EquipmentPage from './containers/EquipmentPage'
 import BattlePage from './containers/BattlePage'
 import About from './components/About'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
 
 const DBURL = 'http://localhost:3001'
 
@@ -16,7 +16,10 @@ class App extends React.Component {
       horses: [],
       armors: [],
       weapons: [],
-      eqtFilter: ''
+      eqtFilter: '',
+      userWeapon: '',
+      userHorse: '',
+      userArmor: ''
     }
   }
 
@@ -42,6 +45,19 @@ class App extends React.Component {
     return this.state[`${this.state.eqtFilter}`]
   }
 
+  equipEqt = (item, type) => {
+    if(type === 'horses' ){
+      this.setState({userHorse: item})
+    }
+    if(type === 'weapons' ){
+      this.setState({userWeapon: item})
+    }
+    if(type === 'armors' ){
+      this.setState({userArmor: item})
+    }
+  }
+
+
   render() {
     return (
       <Router>
@@ -59,17 +75,10 @@ class App extends React.Component {
                     filterEqt={this.filterEqt}
                     type={this.selectedEqt() }
                     {...routerProps}
+                    equipEqt={this.equipEqt}
                     />
                 ) }} />
-                <Route exact path="/" render={routerProps => {
-                    return(
-                      <MainPage
-                        horse={this.state.horses}
-                        weapon={this.state.weapons}
-                        armor={this.state.armors}
-                        {...routerProps}
-                        />
-                    ) }} />
+              <Route exact path="/" render={() => <MainPage userHorse={this.state.userHorse} userWeapon={this.state.userWeapon} userArmor={this.state.userArmor}/>} />
                   </Switch>
                 </div>
               </Router>

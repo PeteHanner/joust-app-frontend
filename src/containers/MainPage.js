@@ -13,7 +13,7 @@ class MainPage extends React.Component {
             <SelectionContainer />
           </Grid.Column>
           <Grid.Column floated='right' width={6} color='grey'>
-            <LoadoutContainer />
+            <LoadoutContainer userHorse={this.props.userHorse} userWeapon={this.props.userWeapon} userArmor={this.props.userArmor}/>
           </Grid.Column>
         </Grid>
         <Divider vertical><Button circular size='huge'>JOUST!</Button></Divider>

@@ -4,11 +4,17 @@ import {Card, Image} from 'semantic-ui-react'
 
 class Armor extends React.Component {
   render(){
+    console.log(this.props.userArmor === '')
     return(
       <Card>
+        {
+          this.props.userArmor  ?
+          <Image src={this.props.userArmor.img} wrapped/>
+        :
         <Image src='http://www.fillmurray.com/285/220' wrapped/>
+        }
         <Card.Content>
-          <Card.Header>Armor Name</Card.Header>
+          <Card.Header>{this.props.userArmor.name}</Card.Header>
         </Card.Content>
       </Card>
     )

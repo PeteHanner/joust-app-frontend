@@ -6,9 +6,14 @@ class Horse extends React.Component {
   render(){
     return(
       <Card>
-        <Image src='http://www.fillmurray.com/285/220' wrapped/>
+      {
+        this.props.userHorse  ?
+        <Image src={this.props.userHorse.img} wrapped/>
+      :
+      <Image src='http://www.fillmurray.com/285/220' wrapped/>
+      }
         <Card.Content>
-          <Card.Header>Horse Name</Card.Header>
+          <Card.Header>{this.props.userHorse.name}</Card.Header>
         </Card.Content>
       </Card>
     )

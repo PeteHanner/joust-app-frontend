@@ -8,9 +8,9 @@ class LoadoutContainer extends React.Component {
   render(){
     return(
       <Container align='center'>
-        <Weapon />
-        <Armor />
-        <Horse />
+        <Weapon userWeapon={this.props.userWeapon}/>
+        <Armor userArmor={this.props.userArmor}/>
+        <Horse userHorse={this.props.userHorse}/>
       </Container>
     )
   }
