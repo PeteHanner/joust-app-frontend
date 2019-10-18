@@ -8,17 +8,17 @@ class SelectionContainer extends React.Component {
     return(
       <div>
         <Segment>
-          <Link to='/equipment/weapon'>
+          <Link to='/equipment/weapons'>
             <Button size='huge' circular >weapon </Button>
           </Link>
         </Segment>
         <Segment>
-          <Link to='/equipment/armor'>
+          <Link to='/equipment/armors'>
             <Button size='huge' circular >armor </Button>
           </Link>
         </Segment>
         <Segment>
-          <Link to='/equipment/horse'>
+          <Link to='/equipment/horses'>
             <Button size='huge' circular icon='chess knight'></Button>
           </Link>
         </Segment>

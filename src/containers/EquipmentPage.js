@@ -5,17 +5,9 @@ import DetailContainer from './DetailContainer'
 
 class EquipmentPage extends React.Component {
 
-  constructor() {
-    super()
-    this.state = {
-      equipment: []
-    }
-  }
-
   componentDidMount() {
     const eqtType = this.props.match.params.type
-    const eqtArray = this.props[`${eqtType}`]
-    this.setState({equipment: eqtArray})
+    this.props.filterEqt(eqtType)
   }
 
   render() {
@@ -25,7 +17,7 @@ class EquipmentPage extends React.Component {
         <Segment>
           <Grid columns={2} divided>
             <Grid.Column width={10}>
-              <IconContainer type={this.state.equipment}/>
+              <IconContainer type={this.props.type}/>
             </Grid.Column>
             <Grid.Column width={6} align='center'>
               <DetailContainer />

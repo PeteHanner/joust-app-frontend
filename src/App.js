@@ -15,7 +15,8 @@ class App extends React.Component {
     this.state = {
       horses: [],
       armors: [],
-      weapons: []
+      weapons: [],
+      eqtFilter: ''
     }
   }
 
@@ -33,7 +34,15 @@ class App extends React.Component {
     .then(weapons => this.setState({weapons: weapons}))
   }
 
-  render(){
+  filterEqt = (type) => {
+    this.setState({eqtFilter: type})
+  }
+
+  selectedEqt = () => {
+    return this.state[`${this.state.eqtFilter}`]
+  }
+
+  render() {
     return (
       <Router>
         <div className="App">
@@ -47,9 +56,8 @@ class App extends React.Component {
             <Route exact path="/equipment/:type" render={routerProps => {
                 return(
                   <EquipmentPage
-                    horse={this.state.horses}
-                    weapon={this.state.weapons}
-                    armor={this.state.armors}
+                    filterEqt={this.filterEqt}
+                    type={this.selectedEqt() }
                     {...routerProps}
                     />
                 ) }} />
