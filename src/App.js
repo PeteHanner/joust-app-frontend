@@ -78,12 +78,12 @@ class App extends React.Component {
                     equipEqt={this.equipEqt}
                     />
                 ) }} />
-              <Route exact path="/" render={() => <MainPage userHorse={this.state.userHorse} userWeapon={this.state.userWeapon} userArmor={this.state.userArmor}/>} />
-                  </Switch>
-                </div>
-              </Router>
-            )
-          }
-        }
+                <Route exact path="/" render={() => <MainPage userHorse={this.state.userHorse} userWeapon={this.state.userWeapon} userArmor={this.state.userArmor}/>} />
+              </Switch>
+            </div>
+          </Router>
+        )
+      }
+    }
 
-        export default App;
+    export default App;

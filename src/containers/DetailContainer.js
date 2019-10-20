@@ -29,10 +29,10 @@ class DetailContainer extends React.Component {
       <Card >
         <Image src={this.props.selectedEqt.img} wrapped/>
         <Card.Content>
-        <Card.Header>{this.props.selectedEqt.name}</Card.Header>
-        <Card.Description>{this.listStats()}</Card.Description>
-        <br></br>
-        <Button><NavLink  to='/' onClick={() => this.props.equipEqt(this.props.selectedEqt, this.props.type)} >Equip</NavLink></Button>
+          <Card.Header>{this.props.selectedEqt.name}</Card.Header>
+          <Card.Description>{this.listStats()}</Card.Description>
+          <br></br>
+          <Button><NavLink  to='/' onClick={() => this.props.equipEqt(this.props.selectedEqt, this.props.type)} >Equip</NavLink></Button>
         </Card.Content>
       </Card>
     )
