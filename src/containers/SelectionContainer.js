@@ -7,24 +7,26 @@ class SelectionContainer extends React.Component {
   render(){
     return(
       <div>
-        <Segment>
+        <Segment inverted color='blue' padded='very'>
           <Link to='/equipment/weapons'>
-            <Button size='huge' circular >weapon </Button>
+            <Button size='massive' circular icon='bomb'></Button>
           </Link>
         </Segment>
-        <Segment>
+        <Segment inverted color='blue' padded='very'>
           <Link to='/equipment/armors'>
-            <Button size='huge' circular >armor </Button>
+            <Button size='massive' circular icon='shield alternate'></Button>
           </Link>
         </Segment>
-        <Segment>
+        <Segment inverted color='blue' padded='very'>
           <Link to='/equipment/horses'>
-            <Button size='huge' circular icon='chess knight'></Button>
+            <Button size='massive' circular icon='chess knight'></Button>
           </Link>
         </Segment>
-        <Segment>
+        <Segment inverted color='blue' padded='very'>
+        </Segment>
+        <Segment inverted color='blue' padded='very'>
           <Link to='/about'>
-            <Button size='huge' >How to Play</Button>
+            <Button size='large' >How to Play</Button>
           </Link>
         </Segment>
       </div>

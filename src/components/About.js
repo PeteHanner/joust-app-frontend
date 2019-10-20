@@ -7,7 +7,11 @@ const About = () => {
     <React.Fragment>
       <h1>Welcome to Joust!</h1>
 
-      <Button color='blue'><NavLink to='/' style={{color: 'white', textDecoration: 'none'}} >Back to the Game</NavLink></Button>
+      <Button color='blue'>
+        <NavLink to='/' style={{color: 'white', textDecoration: 'none'}} >
+          Back to the Game
+        </NavLink>
+      </Button>
     </React.Fragment>
   )
 }
