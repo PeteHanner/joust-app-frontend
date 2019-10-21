@@ -4,7 +4,6 @@ import {Card, Image} from 'semantic-ui-react'
 
 class Armor extends React.Component {
   render(){
-    console.log(this.props.userArmor === '')
     return(
       <Card>
         {

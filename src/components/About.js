@@ -12,6 +12,8 @@ const About = () => {
           Back to the Game
         </NavLink>
       </Button>
+
+      <p>Jousting Knight icon by Estherhase</p>
     </React.Fragment>
   )
 }

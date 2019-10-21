@@ -4,7 +4,8 @@ import BattleInterface from './BattleInterface'
 import {Grid} from 'semantic-ui-react'
 
 class BattlePage extends React.Component {
-  debugger
+
+
   render(){
     return(
       <Grid centered>
@@ -12,7 +13,12 @@ class BattlePage extends React.Component {
           <AnimationContainer />
         </Grid.Row>
         <Grid.Row columns={3} centered>
-          <BattleInterface userHorse={this.props.userHorse} userWeapon={this.props.userWeapon} userArmor={this.props.userArmor}/>
+          <BattleInterface
+            userHorse={this.props.userHorse}
+            userWeapon={this.props.userWeapon}
+            userArmor={this.props.userArmor}
+            opponent={this.props.opponent}
+          />
         </Grid.Row>
       </Grid>
     )

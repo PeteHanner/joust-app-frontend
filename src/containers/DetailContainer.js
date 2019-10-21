@@ -32,7 +32,7 @@ class DetailContainer extends React.Component {
           <Card.Header>{this.props.selectedEqt.name}</Card.Header>
           <Card.Description>{this.listStats()}</Card.Description>
           <br></br>
-          <Button><NavLink  to='/' onClick={() => this.props.equipEqt(this.props.selectedEqt, this.props.type)} >Equip</NavLink></Button>
+          <NavLink  to='/' onClick={() => this.props.equipEqt(this.props.selectedEqt, this.props.type)} ><Button>Equip</Button></NavLink>
         </Card.Content>
       </Card>
     )
