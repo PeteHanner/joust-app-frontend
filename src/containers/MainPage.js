@@ -10,7 +10,7 @@ class MainPage extends React.Component {
     return(
       <Segment placeholder>
         <Grid container columns={2} relaxed stackable>
-          <Grid.Column stretched floated='left' width={6} color='red'>
+          <Grid.Column stretched floated='left' width={6} color='yellow'>
             <SelectionContainer />
           </Grid.Column>
           <Grid.Column floated='right' width={6} color='grey'>

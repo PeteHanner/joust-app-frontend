@@ -8,7 +8,7 @@ class Horse extends React.Component {
       <Fragment>
         {this.props.userHorse ?
           <Card>
-            <Image src={this.props.userHorse.img} wrapped/>
+            <Image src={this.props.userHorse.img} className='loadout-icon' wrapped/>
             <Card.Content>
               <Card.Header>{this.props.userHorse.name}</Card.Header>
             </Card.Content>

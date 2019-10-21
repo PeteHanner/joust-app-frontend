@@ -6,10 +6,10 @@ class Weapon extends React.Component {
     return(
       <Fragment>
         {this.props.userWeapon ?
-          <Card>
-            <Image src={this.props.userWeapon.img} wrapped/>
+          <Card color='red'>
+            <Image src={this.props.userWeapon.img} className='loadout-icon' wrapped/>
             <Card.Content>
-              <Card.Header>{this.props.userWeapon.name}</Card.Header>
+              <Card.Header inverted color='red'>{this.props.userWeapon.name}</Card.Header>
             </Card.Content>
           </Card>
           :

@@ -7,7 +7,7 @@ class SelectionContainer extends React.Component {
   render(){
     return(
       <div>
-        <Segment inverted color='red' padded>
+        <Segment inverted color='yellow' padded>
           <Link to='/equipment/weapons'>
             <img
               alt='sword icon'
@@ -16,7 +16,7 @@ class SelectionContainer extends React.Component {
             />
           </Link>
         </Segment>
-        <Segment inverted color='red' padded>
+        <Segment inverted color='yellow' padded>
           <Link to='/equipment/armors'>
             <img
               alt='shield icon'
@@ -25,7 +25,7 @@ class SelectionContainer extends React.Component {
             />
           </Link>
         </Segment>
-        <Segment inverted color='red' padded>
+        <Segment inverted color='yellow' padded>
           <Link to='/equipment/horses'>
             <img
               alt='horse icon'
@@ -34,7 +34,7 @@ class SelectionContainer extends React.Component {
             />
           </Link>
         </Segment>
-        <Segment inverted color='red' padded>
+        <Segment inverted color='yellow' padded>
           <Link to='/about'>
             <Button size='large' >How to Play</Button>
           </Link>
