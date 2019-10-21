@@ -6,7 +6,7 @@ class Armor extends React.Component {
     return(
       <Fragment>
         {this.props.userArmor ?
-          <Card>
+          <Card raised color='blue'>
             <Image src={this.props.userArmor.img} className='loadout-icon' wrapped/>
             <Card.Content>
               <Card.Header>{this.props.userArmor.name}</Card.Header>

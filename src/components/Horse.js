@@ -7,7 +7,7 @@ class Horse extends React.Component {
     return(
       <Fragment>
         {this.props.userHorse ?
-          <Card>
+          <Card raised color='green'>
             <Image src={this.props.userHorse.img} className='loadout-icon' wrapped/>
             <Card.Content>
               <Card.Header>{this.props.userHorse.name}</Card.Header>

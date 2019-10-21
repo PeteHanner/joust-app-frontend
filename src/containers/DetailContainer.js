@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import {Card, Image, Button} from 'semantic-ui-react'
 import {NavLink} from 'react-router-dom'
 
@@ -21,20 +21,26 @@ class DetailContainer extends React.Component {
     if(this.props.selectedEqt.spd_mod || this.props.selectedEqt.spd_mod === 0){
       stats.push(`Speed Modifier: ${this.props.selectedEqt.spd_mod}`)
     }
-    return stats.map((stat) => <p>{stat}</p>)
+    return stats.map((stat) => <p key={stat}>{stat}</p>)
   }
 
   render(){
     return(
-      <Card >
-        <Image src={this.props.selectedEqt.img} wrapped/>
-        <Card.Content>
-          <Card.Header>{this.props.selectedEqt.name}</Card.Header>
-          <Card.Description>{this.listStats()}</Card.Description>
-          <br></br>
-          <NavLink  to='/' onClick={() => this.props.equipEqt(this.props.selectedEqt, this.props.type)} ><Button>Equip</Button></NavLink>
-        </Card.Content>
-      </Card>
+      <Fragment>
+      {Object.keys(this.props.selectedEqt).length === 0 ?
+        null
+        :
+        <Card >
+          <Image src={this.props.selectedEqt.img} wrapped/>
+          <Card.Content>
+            <Card.Header>{this.props.selectedEqt.name}</Card.Header>
+            <Card.Description>{this.listStats()}</Card.Description>
+            <br></br>
+            <NavLink  to='/' onClick={() => this.props.equipEqt(this.props.selectedEqt, this.props.type)} ><Button>Equip</Button></NavLink>
+          </Card.Content>
+        </Card>
+      }
+    </Fragment>
     )
   }
 }

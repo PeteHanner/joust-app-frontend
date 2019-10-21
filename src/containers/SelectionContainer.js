@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Segment} from 'semantic-ui-react'
+import {Button, Segment, Image} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 
 
@@ -8,8 +8,10 @@ class SelectionContainer extends React.Component {
     return(
       <div>
         <Segment inverted color='yellow' padded>
-          <Link to='/equipment/weapons'>
-            <img
+          <Link raised to='/equipment/weapons'>
+            <Image
+              centered
+              raised
               alt='sword icon'
               src={require('../assets/images/icons/sword.png')}
               className='main-page-icon'
