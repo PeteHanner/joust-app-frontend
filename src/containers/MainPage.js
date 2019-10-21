@@ -2,7 +2,6 @@ import React from 'react'
 import LoadoutContainer from './LoadoutContainer'
 import SelectionContainer from './SelectionContainer'
 import {Grid, Divider, Segment, Button} from 'semantic-ui-react'
-import {Link} from 'react-router-dom'
 
 
 
@@ -11,7 +10,7 @@ class MainPage extends React.Component {
     return(
       <Segment placeholder>
         <Grid container columns={2} relaxed stackable>
-          <Grid.Column stretched floated='left' width={6} color='blue'>
+          <Grid.Column stretched floated='left' width={6} color='red'>
             <SelectionContainer />
           </Grid.Column>
           <Grid.Column floated='right' width={6} color='grey'>

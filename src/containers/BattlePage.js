@@ -9,10 +9,10 @@ class BattlePage extends React.Component {
   render(){
     return(
       <Grid centered>
-        <Grid.Row columns={1} centered>
+        <Grid.Row columns={1}>
           <AnimationContainer />
         </Grid.Row>
-        <Grid.Row columns={3} centered>
+        <Grid.Row columns={3}>
           <BattleInterface
             userHorse={this.props.userHorse}
             userWeapon={this.props.userWeapon}

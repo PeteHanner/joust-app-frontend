@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react'
+import {Redirect} from 'react-router-dom'
 import {Grid, Button} from 'semantic-ui-react'
 
 class BattleInterface extends React.Component {
@@ -7,13 +8,15 @@ class BattleInterface extends React.Component {
 
     this.state = {
       userHp: 100,
-      userAtk: 80,
-      userDef: 70,
-      userSpd: 1.2,
+      userAtk: 0,
+      userDef: 0,
+      userSpd: 0,
       opponentHp: 100,
-      opponentAtk: 80,
-      opponentDef: 70,
-      opponentSpd: 1.2
+      opponentAtk: 0,
+      opponentDef: 0,
+      opponentSpd: 0,
+      userAtkMsg: '',
+      oppAtkMsg: ''
     }
   }
 
@@ -28,8 +31,6 @@ class BattleInterface extends React.Component {
   //   })
   // }
 
-
-
   joust = () => {
     // "roll" user attack and defense
     // "roll" opp attack & defense
@@ -39,40 +40,44 @@ class BattleInterface extends React.Component {
     let oppDefSuccess = !!( Math.ceil(Math.random() * 100) < this.state.opponentDef)
     // user attack resolution
     if (userAtkSuccess && oppDefSuccess) {
-      console.log('user attack success, opponent damage success');
-      console.log(this.state.opponentHp);
-      console.log(this.props.userWeapon.base_dmg);
-      console.log(this.state.userSpd);
-      // debugger
-      if (this.state.userSpd < 1) {
-        this.setState({opponentHp: ( this.state.opponentHp - ( this.props.userWeapon.base_dmg * this.state.userSpd ) )  }, this.checkHp)
-      } else {
-        this.setState({opponentHp: ( this.state.opponentHp - ( this.props.userWeapon.base_dmg ) )  }, this.checkHp)
-      }
+      this.setState({
+        userAtkMsg: `You landed a hit, but your opponent's defenses limited damage!`,
+        opponentHp: ( 0.25 * ( this.state.opponentHp - (this.props.userWeapon.base_dmg * this.state.userSpd) ) )
+      }, this.checkHp)
     } else if (userAtkSuccess && !oppDefSuccess) {
-      console.log('user success, opponent failure');
-      this.setState({opponentHp: ( this.state.opponentHp - ( this.props.userWeapon.base_dmg * this.state.userSpd ) )  }, this.checkHp)
+      this.setState({
+        userAtkMsg: `You landed a hit past your opponent's defenses!`,
+        opponentHp: ( this.state.opponentHp - ( this.props.userWeapon.base_dmg * this.state.userSpd ) )
+      }, this.checkHp)
     } else if (!userAtkSuccess && oppDefSuccess) {
-      console.log('user failure, opponent success');
-      this.setState({userHp: (this.state.userHp - (0.1*(this.props.userWeapon.base_dmg))) }, this.checkHp)
+      this.setState({
+        userAtkMsg: `Your opponent parried your attack back at you!`,
+        userHp: (this.state.userHp - (0.1*(this.props.userWeapon.base_dmg)))
+      }, this.checkHp)
     } else {
-      console.log('u suk lol');
+      this.setState({userAtkMsg: `Your attack and your opponent's defense missed each other entirely!`})
     }
 
     // opponent attack resolution
     if (oppAtkSuccess && userDefSuccess) {
-      if (this.state.opponentSpd < 1) {
-        this.setState({userHp: (this.state.userHp - (this.props.opponent[1].base_dmg * this.state.opponentSpd) )}, this.checkHp)
-      } else {
-        this.setState({userHp: (this.state.userHp - this.props.opponent[1].base_dmg)}, this.checkHp)
-      }
+      this.setState({
+        userHp: this.state.userHp - ( 0.25 * (this.props.opponent[1].base_dmg * this.state.opponentSpd) ),
+        oppAtkMsg: `Your opponent landed a hit, but your defenses limited damage!`
+      }, this.checkHp)
     } else if (oppAtkSuccess && !userDefSuccess) {
-      this.setState({userHp: (this.state.userHp - (this.props.opponent[1].base_dmg * this.state.opponentSpd) )}, this.checkHp)
+      this.setState({
+        userHp: (this.state.userHp - (this.props.opponent[1].base_dmg * this.state.opponentSpd) ),
+        oppAtkMsg: `Your opponent landed a hit past your defenses!`
+      }, this.checkHp)
     } else if (!oppAtkSuccess && userDefSuccess) {
-      console.log('opponent attack backfired');
-      this.setState({opponentHp: (this.state.opponentHp - (0.1*(this.props.opponent[1].base_dmg))) }, this.checkHp)
+      this.setState({
+        opponentHp: (this.state.opponentHp - (0.1*(this.props.opponent[1].base_dmg))),
+        oppAtkMsg: `You parried your opponent's attack back at them!`
+      }, this.checkHp)
     } else {
-      console.log('u suk lol');
+      this.setState({
+        oppAtkMsg: `Your opponent's attack and your defense missed each other entirely!`
+      })
     }
   }
 
@@ -89,25 +94,32 @@ class BattleInterface extends React.Component {
 
   render(){
     return(
+      this.props.userWeapon && this.props.userArmor && this.props.userHorse ?
       <Fragment>
-        <Grid.Column>
-          <p>player stats</p>
-          <p>HP:{this.state.userHp}</p>
-          <p>Attack:{this.state.userAtk}</p>
-          <p>Defense:{this.state.userDef}</p>
-          <p>Speed:{this.state.userSpd}</p>
+        <Grid.Column textAlign='center'>
+          <h3>PLAYER</h3>
+          <p>HP: {this.state.userHp.toFixed(2)}</p>
+          <p>Attack: {this.state.userAtk}</p>
+          <p>Defense: {this.state.userDef}</p>
+          <p>Speed Modifier: {this.state.userSpd.toFixed(2)}</p>
         </Grid.Column>
-        <Grid.Column>
-          <Button onClick={this.joust}>JOUST!</Button>
+        <Grid.Column textAlign='center'>
+          <div class='data-div' align="center">
+            <p>{this.state.userAtkMsg}</p>
+            <p>{this.state.oppAtkMsg}</p>
+          </div>
+          <Button color='red' onClick={this.joust}>JOUST!</Button>
         </Grid.Column>
-        <Grid.Column>
-          <p>opponent stats</p>
-          <p>HP:{this.state.opponentHp}</p>
-          <p>Attack:{this.state.opponentAtk}</p>
-          <p>Defense:{this.state.opponentDef}</p>
-          <p>Speed:{this.state.opponentSpd}</p>
+        <Grid.Column textAlign='center'>
+          <h3>OPPONENT</h3>
+          <p>HP: {this.state.opponentHp.toFixed(2)}</p>
+          <p>Attack: {this.state.opponentAtk}</p>
+          <p>Defense: {this.state.opponentDef}</p>
+          <p>Speed Modifier: {this.state.opponentSpd.toFixed(2)}</p>
         </Grid.Column>
       </Fragment>
+      :
+      <Redirect to='/' />
     )
   }
 }

@@ -7,24 +7,34 @@ class SelectionContainer extends React.Component {
   render(){
     return(
       <div>
-        <Segment inverted color='blue' padded='very'>
+        <Segment inverted color='red' padded>
           <Link to='/equipment/weapons'>
-            <Button size='massive' circular icon='bomb'></Button>
+            <img
+              alt='sword icon'
+              src={require('../assets/images/icons/sword.png')}
+              className='main-page-icon'
+            />
           </Link>
         </Segment>
-        <Segment inverted color='blue' padded='very'>
+        <Segment inverted color='red' padded>
           <Link to='/equipment/armors'>
-            <Button size='massive' circular icon='shield alternate'></Button>
+            <img
+              alt='shield icon'
+              src={require('../assets/images/icons/shield.png')}
+              className='main-page-icon'
+            />
           </Link>
         </Segment>
-        <Segment inverted color='blue' padded='very'>
+        <Segment inverted color='red' padded>
           <Link to='/equipment/horses'>
-            <Button size='massive' circular icon='chess knight'></Button>
+            <img
+              alt='horse icon'
+              src={require('../assets/images/icons/horse.png')}
+              className='main-page-icon'
+            />
           </Link>
         </Segment>
-        <Segment inverted color='blue' padded='very'>
-        </Segment>
-        <Segment inverted color='blue' padded='very'>
+        <Segment inverted color='red' padded>
           <Link to='/about'>
             <Button size='large' >How to Play</Button>
           </Link>
