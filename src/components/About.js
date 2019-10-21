@@ -14,6 +14,7 @@ const About = () => {
       </Button>
 
       <p>Jousting Knight icon by Estherhase</p>
+      <p>Sword, shield, and horse icons from the Noun Project</p>
     </React.Fragment>
   )
 }
