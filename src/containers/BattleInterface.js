@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react'
-import {Grid} from 'semantic-ui-react'
+import {Grid, Button} from 'semantic-ui-react'
 
 class BattleInterface extends React.Component {
   constructor(){
@@ -32,7 +32,10 @@ class BattleInterface extends React.Component {
       <p>Speed:{this.state.userSpd}</p>
       </Grid.Column>
       <Grid.Column>
-      <p>btn</p>
+      <div class='data-div' align="center">
+      <p></p>
+      <Button>Joust</Button>
+      </div>
       </Grid.Column>
       <Grid.Column>
       <p>opponent stats</p>
