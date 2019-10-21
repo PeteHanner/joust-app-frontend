@@ -5,7 +5,7 @@ import MainPage from './containers/MainPage'
 import EquipmentPage from './containers/EquipmentPage'
 import BattlePage from './containers/BattlePage'
 import About from './components/About'
-import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch, Redirect, withRouter} from 'react-router-dom';
 
 const DBURL = 'http://localhost:3001'
 
@@ -19,7 +19,8 @@ class App extends React.Component {
       eqtFilter: '',
       userWeapon: '',
       userHorse: '',
-      userArmor: ''
+      userArmor: '',
+      redirect: false
     }
   }
 
@@ -58,6 +59,15 @@ class App extends React.Component {
   }
 
 
+  verifyJoust = () => {
+    if (this.state.userWeapon && this.state.userArmor && this.state.userHorse) {
+      this.setState({redirect: true})
+    } else {
+      alert("You are not fully equipped")
+    }
+  }
+
+
   render() {
     return (
       <Router>
@@ -66,8 +76,8 @@ class App extends React.Component {
             <Route path="/about">
               <About />
             </Route>
-            <Route path="/battle">
-              <BattlePage />
+            <Route exact path="/battle">
+              <BattlePage userHorse={this.state.userHorse} userWeapon={this.state.userWeapon} userArmor={this.state.userArmor}/>
             </Route>
             <Route exact path="/equipment/:type" render={routerProps => {
                 return(
@@ -78,12 +88,14 @@ class App extends React.Component {
                     equipEqt={this.equipEqt}
                     />
                 ) }} />
-                <Route exact path="/" render={() => <MainPage userHorse={this.state.userHorse} userWeapon={this.state.userWeapon} userArmor={this.state.userArmor}/>} />
+              <Route exact path="/" render={() => <MainPage verifyJoust={this.verifyJoust} userHorse={this.state.userHorse} userWeapon={this.state.userWeapon} userArmor={this.state.userArmor}/>} />
               </Switch>
+              {this.state.redirect === true ?
+              <Redirect to='/battle'/> : null}
             </div>
           </Router>
         )
       }
     }
 
-    export default App;
+    export default withRouter(App);

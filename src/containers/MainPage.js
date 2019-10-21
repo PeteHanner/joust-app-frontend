@@ -2,6 +2,8 @@ import React from 'react'
 import LoadoutContainer from './LoadoutContainer'
 import SelectionContainer from './SelectionContainer'
 import {Grid, Divider, Segment, Button} from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
+
 
 
 class MainPage extends React.Component {
@@ -16,7 +18,10 @@ class MainPage extends React.Component {
             <LoadoutContainer userHorse={this.props.userHorse} userWeapon={this.props.userWeapon} userArmor={this.props.userArmor}/>
           </Grid.Column>
         </Grid>
-        <Divider vertical><Button circular size='huge'>JOUST!</Button></Divider>
+
+        <Divider vertical>
+          <Button circular size='huge' onClick={this.props.verifyJoust}>JOUST!</Button>
+        </Divider>
       </Segment>
     )
   }
