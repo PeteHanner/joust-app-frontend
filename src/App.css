@@ -62,18 +62,16 @@
   padding-top: 35px;
   padding-left: 25px;
   padding-bottom: 35px;
-  animation: chargeRight 3s 1;
-  animation-timing-function: ease-in;
 }
 
 .chargingRight {
-  animation: chargeRight 5s 1;
+  animation: chargeRight 2s 1;
   animation-timing-function: ease-in;
 }
 
 @keyframes chargeRight {
   0% {left: 0px;}
-  40% {left: 400px;}
+  40% {left: 500px;}
   100% {left: 0px;}
 }
 
@@ -81,4 +79,15 @@
   padding-top: 35px;
   padding-right: 25px;
   padding-bottom: 35px;
+}
+
+.chargingLeft {
+  animation: chargeLeft 2s 1;
+  animation-timing-function: ease-in;
+}
+
+@keyframes chargeLeft {
+  0% {left: 0px;}
+  40% {left: -500px;}
+  100% {left: 0px;}
 }
