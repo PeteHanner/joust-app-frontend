@@ -141,8 +141,20 @@
   border: 2px solid white;
   border-radius: 85px;
 }
+
 .midevil-font {
   font-family: Apple Chancery;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.midevil-font.header {
+  font-weight: bolder;
+  font-size: 22px;
+}
+
+.midevil-font.log {
+  font-size: 20px;
 }
 
 .chargingLeft {
