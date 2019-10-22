@@ -47,6 +47,8 @@ const About = () => {
       </Button>
       <br />
       <div id='attribution'>
+        <strong><p>Created by <a href='https://github.com/ggarciag24' target="_blank" >German Garcia Gonzalez</a> and <a href='https://github.com/PeteHanner' target="_blank" >Pete Hanner</a></p></strong>
+        <br></br>
         <p> Created my free logo at <a href='https://my.logomakr.com'>LogoMakr.com</a></p>
         <p>Jousting Knight icon by Estherhase</p>
         <p>Sword, shield, and horse icons from the Noun Project</p>
