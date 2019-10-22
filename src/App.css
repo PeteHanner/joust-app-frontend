@@ -26,3 +26,24 @@
   width: 200px;
   height: 120px;
 }
+.how {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  font-family: Apple Chancery;
+  font-size: 30px;
+}
+
+.welcome {
+  font-family: Apple Chancery;
+  font-size: 80px;
+}
+
+.pre, .battle {
+  font-family: Apple Chancery;
+  font-size: 25px;
+}
+
+.about-info {
+  font-family: Apple Chancery;
+  font-size: 16px;
+}
