@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react'
 import {Redirect} from 'react-router-dom'
-import {Grid, Button} from 'semantic-ui-react'
+import {Grid, Button, Progress} from 'semantic-ui-react'
 
 class BattleInterface extends React.Component {
 
@@ -19,7 +19,9 @@ class BattleInterface extends React.Component {
       </Grid.Column>
         <Grid.Column textAlign='center'>
           <h3>PLAYER</h3>
-          <p>HP: {this.props.userHp.toFixed(2)}</p>
+          <Progress progress='value' value={this.props.userHp.toFixed(2)} total={100}  indicating>
+          HP
+          </Progress>
           <p>Attack: {this.props.userAtk}</p>
           <p>Defense: {this.props.userDef}</p>
           <p>Speed Modifier: {this.props.userSpd.toFixed(2)}</p>
@@ -33,7 +35,9 @@ class BattleInterface extends React.Component {
         </Grid.Column>
         <Grid.Column textAlign='center'>
           <h3>OPPONENT</h3>
-          <p>HP: {this.props.opponentHp.toFixed(2)}</p>
+          <Progress progress='value' value={this.props.opponentHp.toFixed(2)} total={100}  indicating>
+          HP
+          </Progress>
           <p>Attack: {this.props.opponentAtk}</p>
           <p>Defense: {this.props.opponentDef}</p>
           <p>Speed Modifier: {this.props.opponentSpd.toFixed(2)}</p>
