@@ -33,6 +33,7 @@ class SelectionContainer extends React.Component {
               className='main-page-icon'
             />
           </Link>
+          <br></br><br></br><br></br>
         </Segment>
         <Segment inverted color='yellow' padded>
           <Link to='/about'>
