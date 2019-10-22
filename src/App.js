@@ -60,11 +60,16 @@ class App extends React.Component {
 
 
   verifyJoust = () => {
+    debugger
     if (this.state.userWeapon && this.state.userArmor && this.state.userHorse) {
       this.setState({redirect: true})
     } else {
       alert("You are not fully equipped")
     }
+  }
+
+  turnOffRedirect = () => {
+    this.setState({redirect: false})
   }
 
   createOpponent = () => {
@@ -85,7 +90,7 @@ class App extends React.Component {
               <About />
             </Route>
             <Route exact path="/battle">
-              <BattlePage userHorse={this.state.userHorse} userWeapon={this.state.userWeapon} userArmor={this.state.userArmor} opponent={this.createOpponent()} />
+              <BattlePage userHorse={this.state.userHorse} userWeapon={this.state.userWeapon} userArmor={this.state.userArmor} opponent={this.createOpponent()} turnOffRedirect={this.turnOffRedirect} />
             </Route>
             <Route exact path="/equipment/:type" render={routerProps => {
                 return(
