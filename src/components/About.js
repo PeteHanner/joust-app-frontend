@@ -31,6 +31,7 @@ const About = () => {
         </NavLink>
       </Button>
       <br />
+      <div id='attribution'>
       <p>Jousting Knight icon by Estherhase</p>
       <p>Sword, shield, and horse icons from the Noun Project</p>
       <p>Flail image by Tim Bartel</p>
@@ -38,6 +39,7 @@ const About = () => {
       <p>Leather armor image by Ed's Toy Box</p>
       <p>Hoplite armor image by Max Pixel</p>
       <p>Loincloth image by Jacob Ring</p>
+      </div>
     </React.Fragment>
   )
 }
