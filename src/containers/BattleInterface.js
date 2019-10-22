@@ -20,6 +20,7 @@ class BattleInterface extends React.Component {
     }
   }
 
+  // UNCOMMENT
   // componentDidMount(){
   //   this.setState({
   //     userAtk:(this.props.userWeapon.atk_mod + this.props.userHorse.atk_mod),
@@ -94,7 +95,7 @@ class BattleInterface extends React.Component {
 
   render(){
     return(
-      this.props.userWeapon && this.props.userArmor && this.props.userHorse ?
+      // this.props.userWeapon && this.props.userArmor && this.props.userHorse ?
       <Fragment>
         <Grid.Column textAlign='center'>
           <h3>PLAYER</h3>
@@ -104,7 +105,7 @@ class BattleInterface extends React.Component {
           <p>Speed Modifier: {this.state.userSpd.toFixed(2)}</p>
         </Grid.Column>
         <Grid.Column textAlign='center'>
-          <div class='data-div' align="center">
+          <div className='data-div' align="center">
             <p>{this.state.userAtkMsg}</p>
             <p>{this.state.oppAtkMsg}</p>
           </div>
@@ -118,8 +119,8 @@ class BattleInterface extends React.Component {
           <p>Speed Modifier: {this.state.opponentSpd.toFixed(2)}</p>
         </Grid.Column>
       </Fragment>
-      :
-      <Redirect to='/' />
+      // : UNCOMMENT
+      // <Redirect to='/' />
     )
   }
 }

@@ -19,7 +19,7 @@ class MainPage extends React.Component {
         </Grid>
 
         <Divider vertical>
-          <Button circular size='huge' onClick={this.props.verifyJoust}>JOUST!</Button>
+          <Button circular color='red' size='massive' onClick={this.props.verifyJoust}>JOUST!</Button>
         </Divider>
       </Segment>
     )

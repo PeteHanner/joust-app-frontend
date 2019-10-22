@@ -8,10 +8,9 @@ class SelectionContainer extends React.Component {
     return(
       <div>
         <Segment inverted color='yellow' padded>
-          <Link raised to='/equipment/weapons'>
+          <Link to='/equipment/weapons'>
             <Image
               centered
-              raised
               alt='sword icon'
               src={require('../assets/images/icons/sword.png')}
               className='main-page-icon'
