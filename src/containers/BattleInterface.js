@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react'
 import {Redirect} from 'react-router-dom'
-import {Grid, Button, Progress} from 'semantic-ui-react'
+import {Grid, Button, Progress, Image} from 'semantic-ui-react'
 
 class BattleInterface extends React.Component {
 
@@ -31,7 +31,7 @@ class BattleInterface extends React.Component {
             <p>{this.props.userAtkMsg}</p>
             <p>{this.props.oppAtkMsg}</p>
           </div>
-          <Button color='red' disabled={this.props.charging} onClick={this.props.joust}>JOUST!</Button>
+          <Image id='joust-logo' alt='JOUST!' src='https://i.imgur.com/gYyasxF.png' onClick={this.props.charging ? null : this.props.joust} />
         </Grid.Column>
         <Grid.Column textAlign='center'>
           <h3>OPPONENT</h3>

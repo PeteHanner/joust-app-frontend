@@ -65,6 +65,32 @@
   width: 30%
 }
 
+#start-logo {
+  margin: auto;
+  position: relative;
+  bottom: 80px;
+  width: 70%;
+  opacity: 0.7;
+}
+
+#start-logo:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+#joust-logo {
+  margin: auto;
+  position: relative;
+  /* bottom: 80px; */
+  width: 60%;
+  opacity: 0.7;
+}
+
+#joust-logo:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
 #left-knight {
   padding-top: 35px;
   padding-left: 25px;

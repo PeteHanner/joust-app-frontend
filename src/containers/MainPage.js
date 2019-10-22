@@ -1,7 +1,7 @@
 import React from 'react'
 import LoadoutContainer from './LoadoutContainer'
 import SelectionContainer from './SelectionContainer'
-import {Grid, Divider, Segment, Button} from 'semantic-ui-react'
+import {Grid, Divider, Segment, Button, Image} from 'semantic-ui-react'
 
 
 
@@ -18,8 +18,8 @@ class MainPage extends React.Component {
           </Grid.Column>
         </Grid>
 
-        <Divider vertical>
-          <Button circular color='red' size='massive' onClick={this.props.verifyJoust}>JOUST!</Button>
+        <Divider hidden vertical>
+          <Image id='start-logo' alt='JOUST!' src='https://i.imgur.com/gYyasxF.png' onClick={this.props.verifyJoust} />
         </Divider>
       </Segment>
     )
@@ -27,3 +27,10 @@ class MainPage extends React.Component {
 }
 
 export default MainPage
+
+
+
+
+
+
+// <Button circular color='red' size='massive' onClick={this.props.verifyJoust}>JOUST!</Button>
