@@ -21,6 +21,13 @@
   color: #09d3ac;
 }
 
+#attribution {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: lightgrey;
+  font-size: 12px;
+}
+
 .data-div {
   border: 1px solid black;
   min-width: 200px;
