@@ -1,24 +1,31 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import {Card, Image} from 'semantic-ui-react'
 
-
 class Armor extends React.Component {
-  render(){
-    console.log(this.props.userArmor === '')
+  render() {
     return(
-      <Card>
-        {
-          this.props.userArmor  ?
-          <Image src={this.props.userArmor.img} wrapped/>
-        :
-        <Image src='http://www.fillmurray.com/285/220' wrapped/>
+      <Fragment>
+        {this.props.userArmor ?
+          <Card raised color='blue'>
+            <Image src={this.props.userArmor.img} className='loadout-icon' wrapped/>
+            <Card.Content>
+              <Card.Header>{this.props.userArmor.name}</Card.Header>
+            </Card.Content>
+          </Card>
+          :
+          <Image
+            wrapped
+            src={require('../assets/images/icons/shield.png')}
+            className='loadout-placeholder'
+          />
         }
-        <Card.Content>
-          <Card.Header>{this.props.userArmor.name}</Card.Header>
-        </Card.Content>
-      </Card>
+      </Fragment>
     )
   }
 }
 
 export default Armor
+
+
+
+

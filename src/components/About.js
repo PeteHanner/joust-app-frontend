@@ -30,6 +30,10 @@ const About = () => {
           Back to the Game
         </NavLink>
       </Button>
+      
+      <p>Jousting Knight icon by Estherhase</p>
+      <p>Sword, shield, and horse icons from the Noun Project</p>
+      <p>Flail image by Tim Bartel</p>
     </React.Fragment>
   )
 }
