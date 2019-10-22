@@ -104,3 +104,9 @@
   font-family: Apple Chancery;
   font-size: 16px;
 }
+
+.about-page-icon {
+  width: 3%;
+  border: 2px solid white;
+  border-radius: 85px;
+}

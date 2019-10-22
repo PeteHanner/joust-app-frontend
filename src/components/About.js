@@ -9,9 +9,9 @@ const About = () => {
       <h3 class='how'>How to Play</h3>
       <h5 class='pre'>Prerequisite's:</h5>
       <p class='about-info'>A player must select their equipment before being allowed to Joust</p>
-      <p class='about-info'><Button size='massive' circular icon='bomb'></Button> This button will lead you to a selection of WEAPONS to choose from for your battle</p>
-      <p class='about-info'><Button size='massive' circular icon='shield alternate'></Button> This button will lead you to a selection of ARMOR to choose from for your battle</p>
-      <p class='about-info'><Button size='massive' circular icon='chess knight'></Button> This button will lead you to a selection of HORSES to choose from for your battle</p>
+      <p class='about-info'><img alt='sword icon' src={require('../assets/images/icons/sword.png')} className='about-page-icon' />This button will lead you to a selection of WEAPONS to choose from for your battle</p>
+      <p class='about-info'><img alt='shield icon'src={require('../assets/images/icons/shield.png')} className='about-page-icon'/> This button will lead you to a selection of ARMOR to choose from for your battle</p>
+      <p class='about-info'><img alt='horse icon'src={require('../assets/images/icons/horse.png')} className='about-page-icon'/>This button will lead you to a selection of HORSES to choose from for your battle</p>
       <h5 class='battle'>Battle Logic:</h5>
       <p class='about-info'>* This game is based on a random number generator between 1 - 100</p>
       <br></br>
@@ -25,12 +25,12 @@ const About = () => {
       <p class='about-info'>+ then nothing happens to anyone's HP</p>
 
       <br></br>
-      <Button color='red'>
+      <Button color='yellow'>
         <NavLink to='/' style={{color: 'white', textDecoration: 'none'}} >
           Back to the Game
         </NavLink>
       </Button>
-      
+
       <p>Jousting Knight icon by Estherhase</p>
       <p>Sword, shield, and horse icons from the Noun Project</p>
       <p>Flail image by Tim Bartel</p>
