@@ -108,6 +108,9 @@
   border: 2px solid white;
   border-radius: 85px;
 }
+.midevil-font {
+  font-family: Apple Chancery;
+}
 
 .chargingLeft {
   animation: chargeLeft 2s 1;
