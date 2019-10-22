@@ -60,7 +60,6 @@ class App extends React.Component {
 
 
   verifyJoust = () => {
-    debugger
     if (this.state.userWeapon && this.state.userArmor && this.state.userHorse) {
       this.setState({redirect: true})
     } else {

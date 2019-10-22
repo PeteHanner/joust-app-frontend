@@ -123,10 +123,16 @@ class BattlePage extends React.Component {
         />
         </Grid.Row>
         <Divider hidden />
-          <Grid.Row columns={3}>
+          <Grid.Row columns={5}>
             <BattleInterface
               {...this.state}
               joust={this.joust}
+              userWeapon={this.props.userWeapon}
+              userArmor={this.props.userArmor}
+              userHorse={this.props.userHorse}
+              opponentWeapon={this.props.opponent[1]}
+              opponentArmor={this.props.opponent[2]}
+              opponentHorse={this.props.opponent[0]}
             />
           </Grid.Row>
         </Grid>
