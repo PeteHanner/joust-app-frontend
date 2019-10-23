@@ -5,7 +5,6 @@ import {Grid, Button, Progress, Image} from 'semantic-ui-react'
 class BattleInterface extends React.Component {
 
   render(){
-    debugger
     return(
       this.props.gameOver ?
       <Redirect to='/' />
@@ -26,7 +25,7 @@ class BattleInterface extends React.Component {
           <p className='midevil-font'>Defense: {this.props.userDef}</p>
           <p className='midevil-font'>Speed Modifier: {this.props.userSpd.toFixed(2)}</p>
         </Grid.Column>
-        <Grid.Column textAlign='center' width={3.75}>
+        <Grid.Column textAlign='center' width={3}>
           <div className='data-div' align="center" >
             <p className='midevil-font log'>{this.props.userAtkMsg}</p>
             <p className='midevil-font log'>{this.props.oppAtkMsg}</p>

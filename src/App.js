@@ -72,7 +72,7 @@ class App extends React.Component {
   }
 
   createOpponent = () => {
-    let opponent = []
+    const opponent = []
     opponent.push(this.state.horses[Math.floor(Math.random() * this.state.horses.length)])
     opponent.push(this.state.weapons[Math.floor(Math.random() * this.state.weapons.length)])
     opponent.push(this.state.armors[Math.floor(Math.random() * this.state.armors.length)])
@@ -89,7 +89,7 @@ class App extends React.Component {
               <About />
             </Route>
             <Route exact path="/battle">
-              <BattlePage userHorse={this.state.userHorse} userWeapon={this.state.userWeapon} userArmor={this.state.userArmor} opponent={this.createOpponent()} turnOffRedirect={this.turnOffRedirect} />
+              <BattlePage userHorse={this.state.userHorse} userWeapon={this.state.userWeapon} userArmor={this.state.userArmor} createOpponent={this.createOpponent} turnOffRedirect={this.turnOffRedirect} />
             </Route>
             <Route exact path="/equipment/:type" render={routerProps => {
                 return(

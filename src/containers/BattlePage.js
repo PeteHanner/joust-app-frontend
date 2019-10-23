@@ -5,17 +5,21 @@ import {Grid, Divider} from 'semantic-ui-react'
 import {Redirect} from 'react-router-dom'
 
 class BattlePage extends React.Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
+    let loaded = !!(this.props.userWeapon && this.props.userArmor && this.props.userHorse)
     this.state = {
       userHp: 100,
       userAtk: 0,
       userDef: 0,
       userSpd: 0,
       opponentHp: 100,
-      opponentAtk: 0,
+      opponentAtk: 0 ,
       opponentDef: 0,
       opponentSpd: 0,
+      opponentWeapon: '',
+      opponentHorse: '',
+      opponentArmor: '',
       userAtkMsg: '',
       oppAtkMsg: '',
       charging: false,
@@ -24,15 +28,19 @@ class BattlePage extends React.Component {
   }
 
   componentDidMount() {
+    let opponent = this.props.createOpponent()
+    this.props.turnOffRedirect()
     if (this.props.userWeapon && this.props.userArmor && this.props.userHorse) {
-      this.props.turnOffRedirect()
       this.setState({
         userAtk:(this.props.userWeapon.atk_mod + this.props.userHorse.atk_mod),
         userDef:(this.props.userArmor.base_def + this.props.userWeapon.def_mod + this.props.userHorse.def_mod),
         userSpd:((this.props.userWeapon.spd_mod + this.props.userHorse.spd_mod + this.props.userArmor.spd_mod)/3),
-        opponentAtk:(this.props.opponent[1].atk_mod + this.props.opponent[0].atk_mod),
-        opponentDef:(this.props.opponent[2].base_def + this.props.opponent[1].def_mod + this.props.opponent[0].def_mod),
-        opponentSpd:((this.props.opponent[1].spd_mod + this.props.opponent[0].spd_mod + this.props.opponent[2].spd_mod)/3),
+        opponentAtk:(opponent[1].atk_mod + opponent[0].atk_mod),
+        opponentDef:(opponent[2].base_def + opponent[1].def_mod + opponent[0].def_mod),
+        opponentSpd:((opponent[1].spd_mod + opponent[0].spd_mod + opponent[2].spd_mod)/3),
+        opponentWeapon: opponent[1],
+        opponentArmor: opponent[2],
+        opponentHorse: opponent[0]
       })
     }
   }
@@ -72,17 +80,17 @@ class BattlePage extends React.Component {
     // opponent attack resolution
     if (oppAtkSuccess && userDefSuccess) {
       this.setState({
-        userHp: this.state.userHp - ( 0.25 * (this.props.opponent[1].base_dmg * this.state.opponentSpd) ),
+        userHp: this.state.userHp - ( 0.25 * (this.state.opponentWeapon.base_dmg * this.state.opponentSpd) ),
         oppAtkMsg: `Your opponent landed a hit, but your defenses limited damage!`
       }, this.checkHp)
     } else if (oppAtkSuccess && !userDefSuccess) {
       this.setState({
-        userHp: (this.state.userHp - (this.props.opponent[1].base_dmg * this.state.opponentSpd) ),
+        userHp: (this.state.userHp - (this.state.opponentWeapon.base_dmg * this.state.opponentSpd) ),
         oppAtkMsg: `Your opponent landed a hit past your defenses!`
       }, this.checkHp)
     } else if (!oppAtkSuccess && userDefSuccess) {
       this.setState({
-        opponentHp: (this.state.opponentHp - (0.1*(this.props.opponent[1].base_dmg))),
+        opponentHp: (this.state.opponentHp - (0.1*(this.state.opponentWeapon.base_dmg))),
         oppAtkMsg: `You parried your opponent's attack back at them!`
       }, this.checkHp)
     } else {
@@ -130,9 +138,9 @@ class BattlePage extends React.Component {
               userWeapon={this.props.userWeapon}
               userArmor={this.props.userArmor}
               userHorse={this.props.userHorse}
-              opponentWeapon={this.props.opponent[1]}
-              opponentArmor={this.props.opponent[2]}
-              opponentHorse={this.props.opponent[0]}
+              opponentWeapon={this.state.opponentWeapon}
+              opponentArmor={this.state.opponentArmor}
+              opponentHorse={this.state.opponentHorse}
             />
           </Grid.Row>
         </Grid>

@@ -25,7 +25,3 @@ class Armor extends React.Component {
 }
 
 export default Armor
-
-
-
-
