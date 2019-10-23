@@ -39,7 +39,21 @@ class IconContainer extends React.Component {
   render() {
     return(
       <Grid columns={3} celled>
-        {this.buildGrid()}
+        <Grid.Row>
+          <Grid.Column><Image src='http://www.fillmurray.com/250/250' /></Grid.Column>
+          <Grid.Column><Image src='http://www.fillmurray.com/250/250' /></Grid.Column>
+          <Grid.Column><Image src='http://www.fillmurray.com/250/250' /></Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <Grid.Column><Image src='http://www.fillmurray.com/250/250' /></Grid.Column>
+          <Grid.Column><Image src='http://www.fillmurray.com/250/250' /></Grid.Column>
+          <Grid.Column><Image src='http://www.fillmurray.com/250/250' /></Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <Grid.Column><Image src='http://www.fillmurray.com/250/250' /></Grid.Column>
+          <Grid.Column><Image src='http://www.fillmurray.com/250/250' /></Grid.Column>
+          <Grid.Column><Image src='http://www.fillmurray.com/250/250' /></Grid.Column>
+        </Grid.Row>
       </Grid>
     )
   }
