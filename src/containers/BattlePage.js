@@ -107,15 +107,12 @@ class BattlePage extends React.Component {
 
     checkHp = () => {
       if (this.state.userHp <= 0 && this.state.opponentHp <= 0) {
-        alert('You both died you dum dums')
-        this.setState({gameOver: true})
+        this.setState({gameOver: true}, () => alert('You both died you dum dums'))
       } else
       if (this.state.userHp <= 0) {
-        alert('You died! Why are you so bad at everything?')
-        this.setState({gameOver: true})
+        this.setState({gameOver: true}, () => alert('You died! Why are you so bad at everything?'))
       } else if (this.state.opponentHp <= 0) {
-        alert('You won! Everyone gets lucky sometimes I guess')
-        this.setState({gameOver: true})
+        this.setState({gameOver: true}, () => alert('You won! Everyone gets lucky sometimes I guess'))
       }
     }
 
