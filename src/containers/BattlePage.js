@@ -52,33 +52,36 @@ class BattlePage extends React.Component {
   joust = () => {
     // "roll" user attack and defense
     // "roll" opp attack & defense
-    this.setState({charging: true})
+    this.setState({charging: true, userAtkMsg: '', oppAtkMsg: ''})
     let userAtkSuccess = !!( Math.ceil(Math.random() * 100) < this.state.userAtk)
     let userDefSuccess = !!( Math.ceil(Math.random() * 100) < this.state.userDef)
     let oppAtkSuccess = !!( Math.ceil(Math.random() * 100) < this.state.opponentAtk)
     let oppDefSuccess = !!( Math.ceil(Math.random() * 100) < this.state.opponentDef)
     // user attack resolution
-    if (userAtkSuccess && oppDefSuccess) {
-      this.setState({
-        userAtkMsg: `You landed a hit, but your opponent's defenses limited damage!`,
-        opponentHp: this.state.opponentHp - (0.25 * (this.props.userWeapon.base_dmg * this.state.userSpd))
-      }, this.checkHp)
-    } else if (userAtkSuccess && !oppDefSuccess) {
-      this.setState({
-        userAtkMsg: `You landed a hit past your opponent's defenses!`,
-        opponentHp: this.state.opponentHp - (this.props.userWeapon.base_dmg * this.state.userSpd)
-      }, this.checkHp)
-    } else if (!userAtkSuccess && oppDefSuccess) {
-      this.setState({
-        userAtkMsg: `Your opponent parried your attack back at you!`,
-        userHp: this.state.userHp - (0.1*(this.props.userWeapon.base_dmg))
-      }, this.checkHp)
-    } else {
-      this.setState({userAtkMsg: `Your attack and your opponent's defense missed each other entirely!`})
-    }
+    setTimeout(() => {
+      if (userAtkSuccess && oppDefSuccess) {
+        this.setState({
+          userAtkMsg: `You landed a hit, but your opponent's defenses limited damage!`,
+          opponentHp: this.state.opponentHp - (0.25 * (this.props.userWeapon.base_dmg * this.state.userSpd))
+        }, this.checkHp)
+      } else if (userAtkSuccess && !oppDefSuccess) {
+        this.setState({
+          userAtkMsg: `You landed a hit past your opponent's defenses!`,
+          opponentHp: this.state.opponentHp - (this.props.userWeapon.base_dmg * this.state.userSpd)
+        }, this.checkHp)
+      } else if (!userAtkSuccess && oppDefSuccess) {
+        this.setState({
+          userAtkMsg: `Your opponent parried your attack back at you!`,
+          userHp: this.state.userHp - (0.1*(this.props.userWeapon.base_dmg))
+        }, this.checkHp)
+      } else {
+        this.setState({userAtkMsg: `Your attack and your opponent's defense missed each other entirely!`})
+      }
+    }, 250)
 
     // opponent attack resolution
-    if (oppAtkSuccess && userDefSuccess) {
+    setTimeout( () => {
+      if (oppAtkSuccess && userDefSuccess) {
       this.setState({
         userHp: this.state.userHp - ( 0.25 * (this.state.opponentWeapon.base_dmg * this.state.opponentSpd) ),
         oppAtkMsg: `Your opponent landed a hit, but your defenses limited damage!`
@@ -97,7 +100,8 @@ class BattlePage extends React.Component {
       this.setState({
         oppAtkMsg: `Your opponent's attack and your defense missed each other entirely!`
       })
-    }
+    }}, 700)
+
     setTimeout(()=> this.setState({charging: false}), 2100)
   }
 
