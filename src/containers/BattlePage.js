@@ -82,77 +82,74 @@ class BattlePage extends React.Component {
     // opponent attack resolution
     setTimeout( () => {
       if (oppAtkSuccess && userDefSuccess) {
-      this.setState({
-        userHp: this.state.userHp - ( 0.25 * (this.state.opponentWeapon.base_dmg * this.state.opponentSpd) ),
-        oppAtkMsg: `Your opponent landed a hit, but your defenses limited damage!`
-      }, this.checkHp)
-    } else if (oppAtkSuccess && !userDefSuccess) {
-      this.setState({
-        userHp: (this.state.userHp - (this.state.opponentWeapon.base_dmg * this.state.opponentSpd) ),
-        oppAtkMsg: `Your opponent landed a hit past your defenses!`
-      }, this.checkHp)
-    } else if (!oppAtkSuccess && userDefSuccess) {
-      this.setState({
-        opponentHp: (this.state.opponentHp - (0.1*(this.state.opponentWeapon.base_dmg))),
-        oppAtkMsg: `You parried your opponent's attack back at them!`
-      }, this.checkHp)
-    } else {
-      this.setState({
-        oppAtkMsg: `Your opponent's attack and your defense missed each other entirely!`
-      })
-    }}, 700)
+        this.setState({
+          userHp: this.state.userHp - ( 0.25 * (this.state.opponentWeapon.base_dmg * this.state.opponentSpd) ),
+          oppAtkMsg: `Your opponent landed a hit, but your defenses limited damage!`
+        }, this.checkHp)
+      } else if (oppAtkSuccess && !userDefSuccess) {
+        this.setState({
+          userHp: (this.state.userHp - (this.state.opponentWeapon.base_dmg * this.state.opponentSpd) ),
+          oppAtkMsg: `Your opponent landed a hit past your defenses!`
+        }, this.checkHp)
+      } else if (!oppAtkSuccess && userDefSuccess) {
+        this.setState({
+          opponentHp: (this.state.opponentHp - (0.1*(this.state.opponentWeapon.base_dmg))),
+          oppAtkMsg: `You parried your opponent's attack back at them!`
+        }, this.checkHp)
+      } else {
+        this.setState({
+          oppAtkMsg: `Your opponent's attack and your defense missed each other entirely!`
+        })
+      }}, 700)
 
-    setTimeout(()=> this.setState({charging: false}), 2100)
-  }
+      setTimeout(()=> this.setState({charging: false}), 2100)
+    }
 
-  checkHp = () => {
-    if (this.state.userHp <= 0 && this.state.opponentHp <= 0) {
-      alert('You both died you dum dums')
-      this.setState({gameOver: true})
-      // setTimeout(()=> this.setState({gameOver: false}), 500)
-    } else
-    if (this.state.userHp <= 0) {
-      alert('You died! Why are you so bad at everything?')
-      this.setState({gameOver: true})
-      // setTimeout(()=> this.setState({gameOver: false}), 500)
-  } else if (this.state.opponentHp <= 0) {
-      alert('You won! Everyone gets lucky sometimes I guess')
-      this.setState({gameOver: true})
-      // setTimeout(()=> this.setState({gameOver: false}), 500)
+    checkHp = () => {
+      if (this.state.userHp <= 0 && this.state.opponentHp <= 0) {
+        alert('You both died you dum dums')
+        this.setState({gameOver: true})
+      } else
+      if (this.state.userHp <= 0) {
+        alert('You died! Why are you so bad at everything?')
+        this.setState({gameOver: true})
+      } else if (this.state.opponentHp <= 0) {
+        alert('You won! Everyone gets lucky sometimes I guess')
+        this.setState({gameOver: true})
+      }
+    }
+
+    render(){
+      return(
+        this.props.userWeapon && this.props.userArmor && this.props.userHorse ?
+        <Fragment>
+          <Grid>
+            <Grid.Row centered columns={1}>
+              <AnimationContainer
+                charging={this.state.charging}
+                onAnimationStart={this.onAnimationStart}
+                onAnimationEnd={this.onAnimationEnd}
+                />
+            </Grid.Row>
+            <Divider hidden />
+            <Grid.Row columns={5}>
+              <BattleInterface
+                {...this.state}
+                joust={this.joust}
+                userWeapon={this.props.userWeapon}
+                userArmor={this.props.userArmor}
+                userHorse={this.props.userHorse}
+                opponentWeapon={this.state.opponentWeapon}
+                opponentArmor={this.state.opponentArmor}
+                opponentHorse={this.state.opponentHorse}
+                />
+            </Grid.Row>
+          </Grid>
+        </Fragment>
+        :
+        <Redirect to='/' />
+      )
     }
   }
 
-  render(){
-    return(
-      this.props.userWeapon && this.props.userArmor && this.props.userHorse ?
-      <Fragment>
-        <Grid>
-          <Grid.Row centered columns={1}>
-        <AnimationContainer
-          charging={this.state.charging}
-          onAnimationStart={this.onAnimationStart}
-          onAnimationEnd={this.onAnimationEnd}
-        />
-        </Grid.Row>
-        <Divider hidden />
-          <Grid.Row columns={5}>
-            <BattleInterface
-              {...this.state}
-              joust={this.joust}
-              userWeapon={this.props.userWeapon}
-              userArmor={this.props.userArmor}
-              userHorse={this.props.userHorse}
-              opponentWeapon={this.state.opponentWeapon}
-              opponentArmor={this.state.opponentArmor}
-              opponentHorse={this.state.opponentHorse}
-            />
-          </Grid.Row>
-        </Grid>
-      </Fragment>
-      :
-      <Redirect to='/' />
-    )
-  }
-}
-
-export default BattlePage
+  export default BattlePage
