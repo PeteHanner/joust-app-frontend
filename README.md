@@ -24,4 +24,4 @@ Once the desired equipment has been found, click the 'equip' button to add it to
 
 Once all equipment has been selected, clicking the Joust! logo in the middle of the screen will navigate you to the battle page. Your equipment and stats are visible on the left, with a randomized opponent on the right. 
 
-![Going from equipment selection to battle page](https://s5.gifyu.com/images/03-start.gif)
+![Going from equipment selection to battle page](https://s5.gifyu.com/images/03-startda059aa8aa792df5.gif)
