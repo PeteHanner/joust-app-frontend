@@ -14,6 +14,14 @@ When the game loads, the right side icons are blank, indicating that the user st
 
 ![Start of game](https://s5.gifyu.com/images/01-start.gif)
 
-Clicking on one of the left-side icons takes you to the loadout screen. Clicking any of the items in the grid will show you a card with details on its battle stats. Once the desired equipment has been found, click the 'equip' button to add it to your loadout.
+Clicking on one of the left-side icons takes you to the loadout screen. Clicking any of the items in the grid will show you a card with details on its battle stats. 
+
+Attack and defense stats are out of 100, representing their % chance of successfully hitting an opponent or mitigating opponent damage, respectively. Base damage is the amount of damage a weapon will do. Speed modifiers affect base damage (for example, 1 is unchanged, 1.1 does 10% additional damage on success, and 0.9 does 10% less damage on success). All speed modifiers are averaged together for a final damage multiplier.
+
+Once the desired equipment has been found, click the 'equip' button to add it to your loadout.
 
 ![Equipment selection](https://s5.gifyu.com/images/02-equipment.gif)
+
+Once all equipment has been selected, clicking the Joust! logo in the middle of the screen will navigate you to the battle page. Your equipment and stats are visible on the left, with a randomized opponent on the right. 
+
+![Going from equipment selection to battle page](https://s5.gifyu.com/images/03-start.gif)
