@@ -25,3 +25,9 @@ Once the desired equipment has been found, click the 'equip' button to add it to
 Once all equipment has been selected, clicking the Joust! logo in the middle of the screen will navigate you to the battle page. Your equipment and stats are visible on the left, with a randomized opponent on the right. 
 
 ![Going from equipment selection to battle page](https://s5.gifyu.com/images/03-startc9252500120b803b.gif)
+
+Clicking the 'Joust!' button on the middle of the page will simulate a single round of combat. The box over the button will display the results of the round. Both the player and the opponent attempt an attack on the other. If an attack is successful, the target's armor still has a possibility of defending against the attack and mitigating damage.
+
+The player and opponent each have a health bar keeping track of their remaining hit points. Once either player is reduced to 0 HP, an alert displaying the result (player win, player loss, or draw) is shown and the player is taken back to the home screen. From there, they can edit their loadout as desired and play again.
+
+![Battle sequence](https://s5.gifyu.com/images/04-battle.gif)
