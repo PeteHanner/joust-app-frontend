@@ -7,13 +7,12 @@ class IconContainer extends React.Component {
     if (this.props.type) {
       // make a copy of the eqt props array
       let typeCopy = [...this.props.type]
+      // set up blank arrays to store objects for grid building
       let gridArray = []
       let gridRow = []
 
       // loop over all the eqt items in props
       while (typeCopy[0]) {
-        // create a row
-        gridRow = []
         for (let i = 0; i < 3; i++) {
           // add 3 items to the row (or however many remain)
           if (typeCopy[0]) {
@@ -22,6 +21,8 @@ class IconContainer extends React.Component {
         }
         // add row to multidimensional array
         gridArray.push(gridRow)
+        // reset the row array for the next loop
+        gridRow = []
       }
 
       // make a JSX Row from each sub-array of the multidimensional array
